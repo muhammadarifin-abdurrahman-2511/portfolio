@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita — Muhammad Arifin Abdurrahman</title>
+<meta name="description" content="Perjalanan Muhammad Arifin: dari pengajar Al-Qur'an di Magelang ke gudang logistik Dachser di Jerman.">
+<link rel="icon" type="image/svg+xml" href="assets/arifin-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f3f9ff; --cream-3:#eaf4ff; --ink:#1f3040; --ink-soft:#566b7d; --ink-faint:#97aabb;
+    --coral:#2e9be6; --coral-dark:#1b7fc9; --coral-light:#bfe1fa; --coral-wash:#e7f4fe; --line:#d5e8f6; --white:#fff;
+    --bounce:cubic-bezier(0.34,1.56,0.64,1); --ease:cubic-bezier(0.22,1,0.36,1);
+    --shadow-sm:0 1px 2px rgba(40,110,170,.07),0 2px 6px rgba(40,110,170,.06);
+    --shadow-md:0 2px 4px rgba(40,110,170,.06),0 10px 24px rgba(40,110,170,.12);
+    --radius:28px;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:'Nunito Sans','Segoe UI',sans-serif; font-size:17px; line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column; }
+  a{ color:inherit; }
+  h1,h2,h3{ font-family:'Fraunces',Georgia,serif; font-weight:600; line-height:1.14; margin:0 0 .5em; letter-spacing:-.01em; }
+  p{ margin:0 0 1em; color:var(--ink-soft); }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 40px; width:100%; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:13px; letter-spacing:.09em; text-transform:uppercase; color:var(--coral-dark); background:var(--coral-wash); padding:7px 16px 7px 14px; border-radius:999px; margin-bottom:22px; }
+  .eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--coral); box-shadow:0 0 0 4px var(--coral-light); }
+
+  nav{ position:sticky; top:0; z-index:100; background:rgba(255,255,255,.82); backdrop-filter:blur(10px) saturate(140%); -webkit-backdrop-filter:blur(10px) saturate(140%); border-bottom:1px solid var(--line); }
+  .nav-inner{ max-width:1080px; margin:0 auto; padding:16px 40px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+  .brand{ font-family:'Fraunces',serif; font-weight:600; font-size:21px; display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .brand .brand-logo{ height:32px; width:auto; display:block; transition:transform .6s var(--bounce); }
+  .brand .brand-logo .lg-outer{ stroke:var(--ink); }
+  .brand:hover .brand-logo{ transform:rotate(-6deg) scale(1.06); }
+  .nav-right{ display:flex; align-items:center; gap:14px; }
+  .back-link{ display:inline-flex; align-items:center; gap:7px; text-decoration:none; font-weight:800; font-size:14px; color:var(--ink-soft); padding:8px 14px; border-radius:999px; transition:color .25s var(--ease), background .25s var(--ease); }
+  .back-link:hover{ color:var(--coral-dark); background:var(--coral-wash); }
+  .back-link svg{ width:16px; height:12px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .lang-switch{ display:flex; gap:2px; background:var(--coral-wash); border:1px solid var(--line); border-radius:999px; padding:3px; }
+  .lang-switch button{ border:none; background:none; cursor:pointer; font-family:'Nunito Sans',sans-serif; font-weight:800; font-size:12.5px; color:var(--ink-soft); padding:6px 11px; border-radius:999px; transition:color .25s var(--ease), background .3s var(--ease); }
+  .lang-switch button.active{ background:var(--coral); color:var(--white); box-shadow:var(--shadow-sm); }
+  .lang-switch button:hover:not(.active){ color:var(--coral-dark); }
+
+  main{ flex:1 0 auto; padding:70px 0 40px; }
+  .page-head{ margin-bottom:44px; }
+  .page-head h1{ font-size:46px; }
+  .page-head .lede{ font-size:19px; }
+  .chapter{ position:relative; padding:28px 0 30px; border-top:1px solid var(--line); }
+  .chapter .ch-num{ font-family:'Fraunces',serif; font-weight:600; font-size:15px; color:var(--coral); letter-spacing:.04em; margin-bottom:8px; }
+  .chapter h2{ font-size:26px; margin-bottom:.35em; }
+  .chapter p:last-child{ margin-bottom:0; }
+  .end-note{ margin-top:36px; padding:26px 28px; background:var(--coral-wash); border:1px solid var(--coral-light); border-radius:var(--radius); }
+  .end-note p{ margin:0; color:var(--ink); font-style:italic; font-family:'Fraunces',serif; font-size:18px; }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .8s var(--bounce); }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  footer{ flex-shrink:0; text-align:center; padding:24px 0 44px; color:var(--ink-faint); font-size:14px; }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 24px; } .nav-inner{ padding:14px 24px; }
+    body{ font-size:16px; } .page-head h1{ font-size:33px; }
+    .brand span.brand-word{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-logo" viewBox="0 0 210 230" aria-label="Arifin">
+        <g class="lg-outer" fill="none" stroke="#161412" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.5">
+          <line x1="105" y1="38" x2="105" y2="196"></line><line x1="105" y1="38" x2="62" y2="196"></line><line x1="82" y1="150" x2="105" y2="150"></line><line x1="105" y1="38" x2="152" y2="38"></line><line x1="105" y1="110" x2="144" y2="110"></line><path d="M105 38 C152 38 152 94 105 94"></path><line x1="105" y1="94" x2="152" y2="196"></line><line x1="152" y1="38" x2="152" y2="196"></line>
+        </g>
+      </svg>
+      <span class="brand-word">Arifin.</span>
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="back-link"><svg viewBox="0 0 16 12"><path d="M15 6H1M6 1L1 6l5 5"/></svg><span data-i18n="back">Beranda</span></a>
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" data-lang="id" class="active">ID</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="page-head reveal">
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">Cerita</span></span>
+      <h1 data-i18n="title">Perjalanan yang nggak lurus-lurus amat.</h1>
+      <p class="lede" data-i18n="lede">Tiga babak yang jauh berbeda satu sama lain — tapi semuanya nyambung jadi saya yang sekarang.</p>
+    </div>
+
+    <div class="chapter reveal">
+      <div class="ch-num">01</div>
+      <h2 data-i18n="c1_h">Ruang kelas & Al-Qur'an</h2>
+      <p data-i18n="c1_p">Dunia saya berawal dari mengajar. Selama 2 tahun saya mengabdi sebagai pengajar Al-Qur'an di Pondok Pesantren I'dad Mu'allimil Qur'an Al Furqon, Magelang, lalu 6 bulan mengajar di SMPIT Ihsanul Fikri. Di sinilah saya belajar sabar, dan bagaimana menjelaskan sesuatu sampai orang lain benar-benar paham.</p>
+    </div>
+
+    <div class="chapter reveal">
+      <div class="ch-num">02</div>
+      <h2 data-i18n="c2_h">Pindah ke Jerman</h2>
+      <p data-i18n="c2_p">Dari ruang kelas di Magelang, saya berpindah jauh — ke Jerman, menjalani Program Ausbildung sebagai Fachlagerist (spesialis logistik gudang) di Dachser. Dunia yang benar-benar baru: bahasa baru, budaya baru, forklift, dan ritme kerja yang berbeda. Tapi ternyata inti-nya sama: disiplin, teliti, dan mau belajar.</p>
+    </div>
+
+    <div class="chapter reveal">
+      <div class="ch-num">03</div>
+      <h2 data-i18n="c3_h">Iseng di waktu luang</h2>
+      <p data-i18n="c3_p">Di luar jam kerja, saya suka mengisi waktu dengan hal-hal baru — belakangan lagi senang menulis dan sesekali ngulik bikin halaman web sederhana, dibantu AI, sekadar buat seru-seruan. Blog ini salah satu hasil iseng itu. Nggak muluk-muluk — cuma cara saya biar tetap penasaran dan terus belajar.</p>
+    </div>
+
+    <div class="end-note reveal">
+      <p data-i18n="end">"Perjalanan saya memang belok-belok — dan saya bersyukur ada di titik ini sekarang. Yang penting terus penasaran dan menikmati prosesnya."</p>
+    </div>
+  </div>
+</main>
+
+<footer><span data-i18n="foot">Ini baru versi ringkasnya — ceritanya masih terus bertambah.</span></footer>
+
+<script>
+  const I18N = {
+    id: {
+      back:"Beranda", eyebrow:"Cerita",
+      title:"Perjalanan yang nggak lurus-lurus amat.",
+      lede:"Tiga babak yang jauh berbeda satu sama lain — tapi semuanya nyambung jadi saya yang sekarang.",
+      c1_h:"Ruang kelas & Al-Qur'an",
+      c1_p:"Dunia saya berawal dari mengajar. Selama 2 tahun saya mengabdi sebagai pengajar Al-Qur'an di Pondok Pesantren I'dad Mu'allimil Qur'an Al Furqon, Magelang, lalu 6 bulan mengajar di SMPIT Ihsanul Fikri. Di sinilah saya belajar sabar, dan bagaimana menjelaskan sesuatu sampai orang lain benar-benar paham.",
+      c2_h:"Pindah ke Jerman",
+      c2_p:"Dari ruang kelas di Magelang, saya berpindah jauh — ke Jerman, menjalani Program Ausbildung sebagai Fachlagerist (spesialis logistik gudang) di Dachser. Dunia yang benar-benar baru: bahasa baru, budaya baru, forklift, dan ritme kerja yang berbeda. Tapi ternyata inti-nya sama: disiplin, teliti, dan mau belajar.",
+      c3_h:"Iseng di waktu luang",
+      c3_p:"Di luar jam kerja, saya suka mengisi waktu dengan hal-hal baru — belakangan lagi senang menulis dan sesekali ngulik bikin halaman web sederhana, dibantu AI, sekadar buat seru-seruan. Blog ini salah satu hasil iseng itu. Nggak muluk-muluk — cuma cara saya biar tetap penasaran dan terus belajar.",
+      end:"\"Perjalanan saya memang belok-belok — dan saya bersyukur ada di titik ini sekarang. Yang penting terus penasaran dan menikmati prosesnya.\"",
+      foot:"Ini baru versi ringkasnya — ceritanya masih terus bertambah."
+    },
+    en: {
+      back:"Home", eyebrow:"Story",
+      title:"A path that isn't exactly a straight line.",
+      lede:"Three chapters that are very different from each other — yet all of them add up to who I am now.",
+      c1_h:"The classroom & the Qur'an",
+      c1_p:"My world began with teaching. For 2 years I served as a Qur'an teacher at the I'dad Mu'allimil Qur'an Al Furqon boarding school in Magelang, then 6 months teaching at SMPIT Ihsanul Fikri. This is where I learned patience, and how to explain something until another person truly understands.",
+      c2_h:"Moving to Germany",
+      c2_p:"From a classroom in Magelang, I moved far away — to Germany, doing an Ausbildung as a Fachlagerist (warehouse logistics specialist) at Dachser. A completely new world: a new language, a new culture, forklifts, and a different work rhythm. But the core turned out to be the same: discipline, precision, and a willingness to learn.",
+      c3_h:"A spare-time hobby",
+      c3_p:"Outside work hours, I like filling my time with new things — lately I enjoy writing and occasionally tinkering with simple web pages, helped by AI, just for fun. This blog is one result of that tinkering. Nothing grand — just my way of staying curious and always learning.",
+      end:"\"My journey really did zig-zag — and I'm grateful to be where I am now. What matters is staying curious and enjoying the process.\"",
+      foot:"This is just the short version — the story keeps growing."
+    },
+    de: {
+      back:"Startseite", eyebrow:"Geschichte",
+      title:"Ein Weg, der nicht ganz geradlinig ist.",
+      lede:"Drei sehr unterschiedliche Kapitel — die zusammen ergeben, wer ich heute bin.",
+      c1_h:"Das Klassenzimmer & der Qur'an",
+      c1_p:"Meine Welt begann mit dem Unterrichten. Zwei Jahre lang war ich Qur'an-Lehrer an der Koranschule I'dad Mu'allimil Qur'an Al Furqon in Magelang, danach sechs Monate an der SMPIT Ihsanul Fikri. Hier lernte ich Geduld — und wie man etwas erklärt, bis der andere es wirklich versteht.",
+      c2_h:"Umzug nach Deutschland",
+      c2_p:"Von einem Klassenzimmer in Magelang zog ich weit weg — nach Deutschland, in eine Ausbildung zum Fachlagerist bei Dachser. Eine völlig neue Welt: neue Sprache, neue Kultur, Gabelstapler und ein anderer Arbeitsrhythmus. Doch der Kern blieb gleich: Disziplin, Genauigkeit und Lernbereitschaft.",
+      c3_h:"Ein Hobby in der Freizeit",
+      c3_p:"Außerhalb der Arbeitszeit fülle ich meine Zeit gerne mit neuen Dingen — in letzter Zeit schreibe ich gerne und bastle ab und zu an einfachen Webseiten, mit Hilfe von KI, einfach zum Spaß. Dieser Blog ist eines der Ergebnisse. Nichts Großes — einfach meine Art, neugierig zu bleiben und weiter zu lernen.",
+      end:"\"Mein Weg verlief wirklich im Zickzack — und ich bin dankbar, jetzt hier zu sein. Wichtig ist, neugierig zu bleiben und den Weg zu genießen.\"",
+      foot:"Das ist nur die Kurzfassung — die Geschichte wächst weiter."
+    }
+  };
+  function applyLang(lang){
+    const dict=I18N[lang]; if(!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{ const k=el.getAttribute('data-i18n'); if(dict[k]!==undefined) el.textContent=dict[k]; });
+    document.documentElement.lang=lang;
+    document.querySelectorAll('#langSwitch button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    try{ localStorage.setItem('lang',lang); }catch(e){}
+  }
+  document.querySelectorAll('#langSwitch button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+  let sl='id'; try{ const s=localStorage.getItem('lang'); if(s&&I18N[s]) sl=s; }catch(e){}
+  applyLang(sl);
+  const io=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
