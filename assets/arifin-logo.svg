@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210" height="230" viewBox="0 0 210 230" role="img" aria-label="Arifin">
+  <g fill="none" stroke="#161412" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.5">
+    <line x1="105" y1="38" x2="105" y2="196"></line>
+    <line x1="105" y1="38" x2="62" y2="196"></line>
+    <line x1="82" y1="150" x2="105" y2="150"></line>
+    <line x1="105" y1="38" x2="152" y2="38"></line>
+    <line x1="105" y1="110" x2="144" y2="110"></line>
+    <path d="M105 38 C152 38 152 94 105 94"></path>
+    <line x1="105" y1="94" x2="152" y2="196"></line>
+    <line x1="152" y1="38" x2="152" y2="196"></line>
+  </g>
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <line x1="105" y1="38" x2="105" y2="196"></line>
+    <line x1="105" y1="38" x2="62" y2="196"></line>
+    <line x1="82" y1="150" x2="105" y2="150"></line>
+    <line x1="105" y1="38" x2="152" y2="38"></line>
+    <line x1="105" y1="110" x2="144" y2="110"></line>
+    <path d="M105 38 C152 38 152 94 105 94"></path>
+    <line x1="105" y1="94" x2="152" y2="196"></line>
+    <line x1="152" y1="38" x2="152" y2="196"></line>
+  </g>
+</svg>

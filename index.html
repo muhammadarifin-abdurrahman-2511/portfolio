@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Muhammad Arifin Abdurrahman — CV & Portfolio</title>
 <meta name="description" content="Fachlagerist Trainee di Dachser, sedang belajar jadi Web Developer secara otodidak.">
+<link rel="icon" type="image/svg+xml" href="assets/arifin-logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
@@ -12,29 +13,72 @@
 <style>
   html{ overflow-anchor: none; }
   :root{
-    --cream: #fff8f1;
-    --cream-2: #fdeee0;
-    --cream-3: #fff3e8;
-    --ink: #3a2e2a;
-    --ink-soft: #6f5d54;
-    --ink-faint: #a5978d;
-    --coral: #ee6a4d;
-    --coral-dark: #d54f34;
-    --coral-light: #ffd9c9;
-    --coral-wash: #fff0e9;
-    --line: #f0ddc9;
-    --white: #fffdfa;
+    --cream: #f3f9ff;
+    --cream-2: #dcefff;
+    --cream-3: #eaf4ff;
+    --ink: #1f3040;
+    --ink-soft: #566b7d;
+    --ink-faint: #97aabb;
+    --coral: #2e9be6;
+    --coral-dark: #1b7fc9;
+    --coral-light: #bfe1fa;
+    --coral-wash: #e7f4fe;
+    --line: #d5e8f6;
+    --white: #ffffff;
     --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --shadow-sm: 0 1px 2px rgba(180, 90, 50, 0.07), 0 2px 6px rgba(180, 90, 50, 0.06);
-    --shadow-md: 0 2px 4px rgba(180, 90, 50, 0.06), 0 10px 24px rgba(180, 90, 50, 0.10), 0 2px 8px rgba(180,90,50,.06);
-    --shadow-lg: 0 8px 16px rgba(180, 90, 50, 0.08), 0 24px 48px rgba(180, 90, 50, 0.14);
+    --shadow-sm: 0 1px 2px rgba(40, 110, 170, 0.07), 0 2px 6px rgba(40, 110, 170, 0.06);
+    --shadow-md: 0 2px 4px rgba(40, 110, 170, 0.06), 0 10px 24px rgba(40, 110, 170, 0.12), 0 2px 8px rgba(40,110,170,.07);
+    --shadow-lg: 0 8px 16px rgba(40, 110, 170, 0.10), 0 24px 48px rgba(40, 110, 170, 0.16);
     --radius: 28px;
     --radius-sm: 16px;
   }
 
   *, *::before, *::after{ box-sizing: border-box; }
   html{ scroll-behavior: smooth; }
+
+  /* ---------- intro / opening ---------- */
+  #intro{
+    position: fixed; inset: 0; z-index: 9999;
+    background: #ffffff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    animation: intro-out .7s var(--ease) forwards 3.2s;
+  }
+  #intro.skip{ animation: intro-out .45s var(--ease) forwards; }
+  @keyframes intro-out{ to{ opacity:0; visibility:hidden; pointer-events:none; } }
+  .intro-inner{ display:flex; flex-direction:column; align-items:center; gap:26px; }
+  .intro-logo{ width: min(260px, 60vw); height:auto; display:block; }
+  .intro-tag{ display:flex; flex-direction:column; align-items:center; gap:14px; }
+  .intro-rule{ width:120px; height:1px; background: var(--ink); opacity:.4; transform:scaleX(0); transform-origin:center; animation: ai-linegrow .6s cubic-bezier(.65,0,.35,1) forwards 1.9s; }
+  .intro-name{ font-weight:500; font-size:16px; letter-spacing:6px; color: var(--ink); text-transform:uppercase; opacity:0; animation: ai-nameup .8s cubic-bezier(.2,.7,.2,1) forwards 2.05s; }
+  .intro-skip{
+    position:absolute; bottom:34px; right:34px;
+    border:1px solid var(--line); background:transparent; color:var(--ink-faint);
+    font-family:'Nunito Sans',sans-serif; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;
+    padding:9px 20px; border-radius:999px; cursor:pointer;
+    opacity:0; animation: ai-fadein .5s ease forwards 1.4s;
+    transition: color .25s var(--ease), border-color .25s var(--ease);
+  }
+  .intro-skip:hover{ color: var(--coral-dark); border-color: var(--coral-light); }
+  .intro-sound{
+    position:absolute; bottom:34px; left:34px;
+    width:42px; height:42px; border-radius:50%;
+    border:1px solid var(--line); background:transparent; cursor:pointer;
+    font-size:16px; line-height:1; display:flex; align-items:center; justify-content:center;
+    opacity:0; animation: ai-fadein .5s ease forwards 1.4s;
+    transition: border-color .25s var(--ease), transform .3s var(--bounce);
+  }
+  .intro-sound:hover{ border-color: var(--coral-light); transform: scale(1.08); }
+  .ai-stroke{ stroke-dasharray:1; stroke-dashoffset:1; animation: ai-draw .62s cubic-bezier(.65,0,.35,1) forwards; }
+  .ai-inline{ opacity:0; animation: ai-fadein .55s ease forwards 1.55s; }
+  @keyframes ai-draw{ to{ stroke-dashoffset:0; } }
+  @keyframes ai-fadein{ to{ opacity:1; } }
+  @keyframes ai-nameup{ from{ opacity:0; transform:translateY(10px); letter-spacing:14px; } to{ opacity:1; transform:translateY(0); letter-spacing:6px; } }
+  @keyframes ai-linegrow{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+  @media (prefers-reduced-motion: reduce){
+    #intro{ display:none !important; }
+  }
   body{
     margin:0;
     background: var(--cream);
@@ -105,7 +149,7 @@
   /* ---------- nav ---------- */
   nav{
     position: sticky; top:0; z-index: 100;
-    background: rgba(255,248,241,0.82);
+    background: rgba(255,255,255,0.82);
     backdrop-filter: blur(10px) saturate(140%);
     -webkit-backdrop-filter: blur(10px) saturate(140%);
     border-bottom: 1px solid var(--line);
@@ -118,13 +162,13 @@
     font-family:'Fraunces',serif; font-weight:600; font-size: 21px;
     display:flex; align-items:center; gap:10px; text-decoration:none;
   }
-  .brand .blob{
-    width:34px;height:34px;border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;
-    background: linear-gradient(140deg, var(--coral), #ffb37a);
-    flex-shrink:0;
-    transition: border-radius .6s var(--ease);
+  .brand .brand-logo{
+    height:32px; width:auto; flex-shrink:0; display:block;
+    transition: transform .6s var(--bounce);
   }
-  .brand:hover .blob{ border-radius: 60% 40% 45% 55% / 45% 55% 45% 55%; }
+  .brand .brand-logo .lg-outer{ stroke: var(--ink); }
+  .brand:hover .brand-logo{ transform: rotate(-6deg) scale(1.06); }
+  .nav-right{ display:flex; align-items:center; gap:16px; }
   .nav-links{ display:flex; gap: 6px; align-items:center; list-style:none; margin:0; padding:0; }
   .nav-links a{
     text-decoration:none; font-weight:700; font-size:15px; color: var(--ink-soft);
@@ -134,6 +178,20 @@
   .nav-links a:hover{ color: var(--coral-dark); background: var(--coral-wash); transform: translateY(-2px); }
   .nav-toggle{ display:none; background:none; border:none; cursor:pointer; padding:8px; }
   .nav-toggle span{ display:block; width:24px; height:3px; background:var(--ink); border-radius:3px; margin:5px 0; transition: transform .3s var(--bounce), opacity .2s; }
+
+  /* language switch */
+  .lang-switch{
+    display:flex; gap:2px; background:var(--coral-wash);
+    border:1px solid var(--line); border-radius:999px; padding:3px;
+  }
+  .lang-switch button{
+    border:none; background:none; cursor:pointer;
+    font-family:'Nunito Sans',sans-serif; font-weight:800; font-size:12.5px; letter-spacing:.02em;
+    color:var(--ink-soft); padding:6px 11px; border-radius:999px;
+    transition: color .25s var(--ease), background .3s var(--ease), transform .3s var(--bounce);
+  }
+  .lang-switch button.active{ background:var(--coral); color:var(--white); box-shadow:var(--shadow-sm); }
+  .lang-switch button:hover:not(.active){ color:var(--coral-dark); transform: translateY(-1px); }
 
   /* ---------- buttons ---------- */
   .btn{
@@ -373,34 +431,101 @@
     .hero .role{ font-size:19px; }
     section .wrap{ padding-top: 64px; padding-bottom: 64px; }
     .kontak h2{ font-size: 30px; }
+    .nav-inner{ padding: 14px 24px; }
+    .lang-switch button{ padding:5px 9px; font-size:12px; }
+    .nav-right{ gap:10px; }
   }
 </style>
 </head>
 <body>
 
+<div id="intro" role="presentation">
+  <div class="intro-inner">
+    <svg class="intro-logo" viewBox="0 0 210 230" aria-label="Arifin">
+      <g class="lg-outer" fill="none" stroke="#161412" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.5">
+        <line class="ai-stroke" style="animation-delay:0s" pathLength="1" x1="105" y1="38" x2="105" y2="196"></line>
+        <line class="ai-stroke" style="animation-delay:.12s" pathLength="1" x1="105" y1="38" x2="62" y2="196"></line>
+        <line class="ai-stroke" style="animation-delay:.24s" pathLength="1" x1="82" y1="150" x2="105" y2="150"></line>
+        <line class="ai-stroke" style="animation-delay:.36s" pathLength="1" x1="105" y1="38" x2="152" y2="38"></line>
+        <line class="ai-stroke" style="animation-delay:.48s" pathLength="1" x1="105" y1="110" x2="144" y2="110"></line>
+        <path class="ai-stroke" style="animation-delay:.6s" pathLength="1" d="M105 38 C152 38 152 94 105 94"></path>
+        <line class="ai-stroke" style="animation-delay:.72s" pathLength="1" x1="105" y1="94" x2="152" y2="196"></line>
+        <line class="ai-stroke" style="animation-delay:.84s" pathLength="1" x1="152" y1="38" x2="152" y2="196"></line>
+      </g>
+      <g class="ai-inline" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <line x1="105" y1="38" x2="105" y2="196"></line>
+        <line x1="105" y1="38" x2="62" y2="196"></line>
+        <line x1="82" y1="150" x2="105" y2="150"></line>
+        <line x1="105" y1="38" x2="152" y2="38"></line>
+        <line x1="105" y1="110" x2="144" y2="110"></line>
+        <path d="M105 38 C152 38 152 94 105 94"></path>
+        <line x1="105" y1="94" x2="152" y2="196"></line>
+        <line x1="152" y1="38" x2="152" y2="196"></line>
+      </g>
+    </svg>
+    <div class="intro-tag">
+      <div class="intro-rule"></div>
+      <div class="intro-name">Arifin</div>
+    </div>
+  </div>
+  <button type="button" class="intro-sound" id="introSound" aria-label="Matikan suara">🔊</button>
+  <button type="button" class="intro-skip" id="introSkip">Lewati</button>
+</div>
+
 <nav>
   <div class="nav-inner">
-    <a href="#hero" class="brand"><span class="blob"></span>Arifin.</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#tentang">Tentang</a></li>
-      <li><a href="#skill">Skill</a></li>
-      <li><a href="#pengalaman">Pengalaman</a></li>
-      <li><a href="#personal">Waktu Luang</a></li>
-      <li><a href="#kontak">Kontak</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="#hero" class="brand">
+      <svg class="brand-logo" viewBox="0 0 210 230" aria-label="Arifin">
+        <g class="lg-outer" fill="none" stroke="#161412" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.5">
+          <line x1="105" y1="38" x2="105" y2="196"></line>
+          <line x1="105" y1="38" x2="62" y2="196"></line>
+          <line x1="82" y1="150" x2="105" y2="150"></line>
+          <line x1="105" y1="38" x2="152" y2="38"></line>
+          <line x1="105" y1="110" x2="144" y2="110"></line>
+          <path d="M105 38 C152 38 152 94 105 94"></path>
+          <line x1="105" y1="94" x2="152" y2="196"></line>
+          <line x1="152" y1="38" x2="152" y2="196"></line>
+        </g>
+        <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+          <line x1="105" y1="38" x2="105" y2="196"></line>
+          <line x1="105" y1="38" x2="62" y2="196"></line>
+          <line x1="82" y1="150" x2="105" y2="150"></line>
+          <line x1="105" y1="38" x2="152" y2="38"></line>
+          <line x1="105" y1="110" x2="144" y2="110"></line>
+          <path d="M105 38 C152 38 152 94 105 94"></path>
+          <line x1="105" y1="94" x2="152" y2="196"></line>
+          <line x1="152" y1="38" x2="152" y2="196"></line>
+        </g>
+      </svg>
+      Arifin.
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#tentang" data-i18n="nav_about">Tentang</a></li>
+        <li><a href="#skill" data-i18n="nav_skill">Skill</a></li>
+        <li><a href="#pengalaman" data-i18n="nav_exp">Pengalaman</a></li>
+        <li><a href="#personal" data-i18n="nav_free">Waktu Luang</a></li>
+        <li><a href="#kontak" data-i18n="nav_contact">Kontak</a></li>
+      </ul>
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" data-lang="id" class="active">ID</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
 <section class="hero" id="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><span class="dot"></span>Halo, saya —</span>
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="hero_eyebrow">Halo, saya —</span></span>
       <h1>Muhammad Arifin<br><span class="name-accent">Abdurrahman</span></h1>
       <p class="role">Fachlagerist Trainee @ Dachser</p>
-      <p class="lede">
+      <p class="lede" data-i18n="hero_lede">
         Sehari-hari mengurus logistik gudang di Jerman lewat program Ausbildung.
         Di waktu senggang, saya sedang
         <span class="squiggle-wrap">belajar jadi Web Developer
@@ -408,8 +533,8 @@
         </span> — otodidak, pelan-pelan, dibantu AI. Situs ini sendiri adalah salah satu buktinya.
       </p>
       <div class="hero-ctas">
-        <a href="#tentang" class="btn btn-primary">Kenalan lebih jauh</a>
-        <a href="#kontak" class="btn btn-ghost">Hubungi saya</a>
+        <a href="#tentang" class="btn btn-primary" data-i18n="hero_cta1">Kenalan lebih jauh</a>
+        <a href="#kontak" class="btn btn-ghost" data-i18n="hero_cta2">Hubungi saya</a>
       </div>
     </div>
     <div class="photo-stage">
@@ -419,9 +544,9 @@
       </div>
       <div class="float-badge badge-dachser">
         <img src="assets/dachser-logo.jpeg" alt="Logo Dachser">
-        Dachser, Jerman
+        <span data-i18n="badge_dachser">Dachser, Jerman</span>
       </div>
-      <div class="float-badge badge-learning">
+      <div class="float-badge badge-learning" data-i18n="badge_learning">
         &lt;/&gt; sedang belajar coding
       </div>
     </div>
@@ -437,15 +562,15 @@
       </div>
     </div>
     <div class="tentang-text reveal">
-      <span class="eyebrow"><span class="dot"></span>Tentang saya</span>
-      <h2>Perjalanan yang nggak lurus-lurus amat, dan menurut saya nggak apa-apa.</h2>
-      <p>
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="about_eyebrow">Tentang saya</span></span>
+      <h2 data-i18n="about_h2">Perjalanan yang nggak lurus-lurus amat, dan menurut saya nggak apa-apa.</h2>
+      <p data-i18n="about_p1">
         Sebelum ke Jerman, dunia saya adalah ruang kelas. Selama 2 tahun saya mengabdi sebagai pengajar
         Al-Qur'an di Pondok Pesantren I'dad Mu'allimil Qur'an Al Furqon, Magelang — lalu lanjut 6 bulan
         mengajar di SMPIT Ihsanul Fikri, Magelang. Dua pengalaman itu yang membentuk cara saya berkomunikasi
         dan sabar menghadapi proses belajar orang lain.
       </p>
-      <p>
+      <p data-i18n="about_p2">
         Sekarang saya sedang menjalani Program Ausbildung sebagai <strong>Fachlagerist</strong> (spesialis
         logistik gudang) di Dachser. Dunia yang jauh berbeda dari mengajar, tapi tetap soal disiplin dan
         ketelitian. Di sela-sela itu, saya iseng — lalu jadi serius — belajar web development sendirian,
@@ -453,13 +578,13 @@
         baca ini adalah hasilnya sejauh ini.
       </p>
       <div class="path-row">
-        <span class="path-step">Pesantren</span>
+        <span class="path-step" data-i18n="path_1">Pesantren</span>
         <svg class="path-arrow" viewBox="0 0 34 14"><path d="M1 7 H30 M23 1 L30 7 L23 13"/></svg>
-        <span class="path-step">SMPIT</span>
+        <span class="path-step" data-i18n="path_2">SMPIT</span>
         <svg class="path-arrow" viewBox="0 0 34 14"><path d="M1 7 H30 M23 1 L30 7 L23 13"/></svg>
-        <span class="path-step">Dachser, Jerman</span>
+        <span class="path-step" data-i18n="path_3">Dachser, Jerman</span>
         <svg class="path-arrow" viewBox="0 0 34 14"><path d="M1 7 H30 M23 1 L30 7 L23 13"/></svg>
-        <span class="path-step">Belajar Coding</span>
+        <span class="path-step" data-i18n="path_4">Belajar Coding</span>
       </div>
     </div>
   </div>
@@ -468,38 +593,38 @@
 <section id="skill">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow"><span class="dot"></span>Yang saya bisa</span>
-      <h2>Skill, dari gudang sampai keyboard.</h2>
-      <p>Campuran skill fisik-praktis dari kerja, dan skill baru yang lagi saya rintis pelan-pelan.</p>
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="skill_eyebrow">Yang saya bisa</span></span>
+      <h2 data-i18n="skill_h2">Skill, dari gudang sampai keyboard.</h2>
+      <p data-i18n="skill_p">Campuran skill fisik-praktis dari kerja, dan skill baru yang lagi saya rintis pelan-pelan.</p>
     </div>
     <div class="skills-grid">
       <div class="skill-card reveal">
         <div class="skill-top">
           <div class="skill-icon"><svg viewBox="0 0 24 24"><path d="M3 17h4v-6H3zM7 17V9l6-3v11M13 9h4l4 4v4h-8"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></div>
-          <h3>Mengoperasikan Forklift (Stapler)</h3>
+          <h3 data-i18n="skill_forklift">Mengoperasikan Forklift (Stapler)</h3>
         </div>
-        <span class="skill-level level-mahir"><span class="lvl-dot"></span>Mahir</span>
+        <span class="skill-level level-mahir"><span class="lvl-dot"></span><span data-i18n="level_mahir">Mahir</span></span>
       </div>
       <div class="skill-card reveal">
         <div class="skill-top">
           <div class="skill-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-          <h3>Microsoft Office</h3>
+          <h3 data-i18n="skill_office">Microsoft Office</h3>
         </div>
-        <span class="skill-level level-mahir"><span class="lvl-dot"></span>Mahir</span>
+        <span class="skill-level level-mahir"><span class="lvl-dot"></span><span data-i18n="level_mahir">Mahir</span></span>
       </div>
       <div class="skill-card reveal">
         <div class="skill-top">
           <div class="skill-icon"><svg viewBox="0 0 24 24"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg></div>
-          <h3>Web Development</h3>
+          <h3 data-i18n="skill_web">Web Development</h3>
         </div>
-        <span class="skill-level level-belajar"><span class="lvl-dot"></span>Sedang belajar</span>
+        <span class="skill-level level-belajar"><span class="lvl-dot"></span><span data-i18n="level_belajar">Sedang belajar</span></span>
       </div>
       <div class="skill-card reveal">
         <div class="skill-top">
           <div class="skill-icon"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3z"/><path d="M19 11a7 7 0 01-14 0M12 18v3M9 21h6"/></svg></div>
-          <h3>Mengajar & Public Speaking</h3>
+          <h3 data-i18n="skill_teach">Mengajar & Public Speaking</h3>
         </div>
-        <span class="skill-level level-mahir"><span class="lvl-dot"></span>Mahir</span>
+        <span class="skill-level level-mahir"><span class="lvl-dot"></span><span data-i18n="level_mahir">Mahir</span></span>
       </div>
     </div>
   </div>
@@ -508,9 +633,9 @@
 <section id="pengalaman" class="alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow"><span class="dot"></span>Rekam jejak</span>
-      <h2>Pengalaman kerja & mengabdi.</h2>
-      <p>Tiga babak yang cukup berbeda satu sama lain, tapi semuanya membentuk cara kerja saya sekarang.</p>
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="exp_eyebrow">Rekam jejak</span></span>
+      <h2 data-i18n="exp_h2">Pengalaman kerja & mengabdi.</h2>
+      <p data-i18n="exp_p">Tiga babak yang cukup berbeda satu sama lain, tapi semuanya membentuk cara kerja saya sekarang.</p>
     </div>
     <div class="timeline">
       <div class="tl-item reveal">
@@ -518,12 +643,12 @@
         <div class="tl-card has-media">
           <div>
             <div class="tl-badge-row">
-              <span class="tl-tag ongoing">Sedang berlangsung</span>
-              <span class="tl-time">Program Ausbildung</span>
+              <span class="tl-tag ongoing" data-i18n="tag_ongoing">Sedang berlangsung</span>
+              <span class="tl-time" data-i18n="tag_ausbildung">Program Ausbildung</span>
             </div>
-            <h3>Fachlagerist Trainee</h3>
-            <div class="tl-org">Dachser — Jerman</div>
-            <p>Menjalani pelatihan sebagai spesialis logistik gudang: pergudangan, penanganan barang,
+            <h3 data-i18n="exp1_title">Fachlagerist Trainee</h3>
+            <div class="tl-org" data-i18n="exp1_org">Dachser — Jerman</div>
+            <p data-i18n="exp1_p">Menjalani pelatihan sebagai spesialis logistik gudang: pergudangan, penanganan barang,
               dan operasional forklift di salah satu perusahaan logistik terbesar di Eropa.</p>
           </div>
           <div class="tl-media">
@@ -537,12 +662,12 @@
         <div class="tl-card">
           <div>
             <div class="tl-badge-row">
-              <span class="tl-tag">Selesai</span>
-              <span class="tl-time">6 bulan</span>
+              <span class="tl-tag" data-i18n="tag_done">Selesai</span>
+              <span class="tl-time" data-i18n="exp2_time">6 bulan</span>
             </div>
-            <h3>Guru</h3>
+            <h3 data-i18n="exp2_title">Guru</h3>
             <div class="tl-org">SMPIT Ihsanul Fikri, Magelang</div>
-            <p>Mengajar dan mendampingi murid SMP, melanjutkan kebiasaan mengajar setelah masa
+            <p data-i18n="exp2_p">Mengajar dan mendampingi murid SMP, melanjutkan kebiasaan mengajar setelah masa
               di pesantren.</p>
           </div>
         </div>
@@ -552,12 +677,12 @@
         <div class="tl-card">
           <div>
             <div class="tl-badge-row">
-              <span class="tl-tag">Selesai</span>
-              <span class="tl-time">2 tahun</span>
+              <span class="tl-tag" data-i18n="tag_done">Selesai</span>
+              <span class="tl-time" data-i18n="exp3_time">2 tahun</span>
             </div>
-            <h3>Pengajar Al-Qur'an</h3>
+            <h3 data-i18n="exp3_title">Pengajar Al-Qur'an</h3>
             <div class="tl-org">Pondok Pesantren I'dad Mu'allimil Qur'an Al Furqon, Magelang</div>
-            <p>Mengabdi sebagai pengajar Al-Qur'an — titik awal yang melatih kesabaran dan cara
+            <p data-i18n="exp3_p">Mengabdi sebagai pengajar Al-Qur'an — titik awal yang melatih kesabaran dan cara
               berkomunikasi saya sampai hari ini.</p>
           </div>
         </div>
@@ -569,15 +694,15 @@
 <section id="personal">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow"><span class="dot"></span>Di luar kerjaan</span>
-      <h2>Biar nggak cuma keliatan kaku di CV.</h2>
-      <p>Sedikit soal saya yang nggak akan muncul di lembar CV formal manapun.</p>
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="personal_eyebrow">Di luar kerjaan</span></span>
+      <h2 data-i18n="personal_h2">Biar nggak cuma keliatan kaku di CV.</h2>
+      <p data-i18n="personal_p">Sedikit soal saya yang nggak akan muncul di lembar CV formal manapun.</p>
     </div>
     <div class="personal-grid">
       <div class="games-card reveal">
-        <span class="eyebrow"><span class="dot"></span>Game favorit</span>
-        <h3>Penggemar game story-mode sinematik</h3>
-        <p>Saya suka game yang ceritanya berat dan sinematik — biasanya dimainkan pelan-pelan sambil
+        <span class="eyebrow"><span class="dot"></span><span data-i18n="games_eyebrow">Game favorit</span></span>
+        <h3 data-i18n="games_h3">Penggemar game story-mode sinematik</h3>
+        <p data-i18n="games_p">Saya suka game yang ceritanya berat dan sinematik — biasanya dimainkan pelan-pelan sambil
           menikmati tiap adegan, bukan buru-buru selesai.</p>
         <ul class="game-list">
           <li><span class="game-emoji-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></span>Ghost of Yotei</li>
@@ -587,9 +712,9 @@
       </div>
       <div class="jog-card reveal">
         <div class="run-icon"><svg viewBox="0 0 24 24"><circle cx="15" cy="4" r="2"/><path d="M13 8l-3 3 2 2-1 6M10 11L5 13M11 13l4 2 3-2M8 21l3-4"/></svg></div>
-        <span class="eyebrow"><span class="dot"></span>Rutinitas</span>
-        <h3>Jogging</h3>
-        <p>Cara sederhana buat jaga kepala tetap jernih di antara jam kerja gudang dan jam belajar
+        <span class="eyebrow"><span class="dot"></span><span data-i18n="jog_eyebrow">Rutinitas</span></span>
+        <h3 data-i18n="jog_h3">Jogging</h3>
+        <p data-i18n="jog_p">Cara sederhana buat jaga kepala tetap jernih di antara jam kerja gudang dan jam belajar
           coding. Nggak neko-neko, cuma lari, dengar suara langkah sendiri, selesai.</p>
       </div>
     </div>
@@ -598,9 +723,9 @@
 
 <section id="kontak">
   <div class="kontak reveal">
-    <span class="eyebrow" style="background:rgba(255,255,255,.16); color:#fff;"><span class="dot" style="background:#fff; box-shadow:0 0 0 4px rgba(255,255,255,.35);"></span>Ngobrol yuk</span>
-    <h2>Ada yang mau ditanyain, atau sekadar mau kenalan?</h2>
-    <p>Baik soal kerja, kolaborasi, atau cuma mau sapa — dengan senang hati saya balas.</p>
+    <span class="eyebrow" style="background:rgba(255,255,255,.16); color:#fff;"><span class="dot" style="background:#fff; box-shadow:0 0 0 4px rgba(255,255,255,.35);"></span><span data-i18n="contact_eyebrow">Ngobrol yuk</span></span>
+    <h2 data-i18n="contact_h2">Ada yang mau ditanyain, atau sekadar mau kenalan?</h2>
+    <p data-i18n="contact_p">Baik soal kerja, kolaborasi, atau cuma mau sapa — dengan senang hati saya balas.</p>
     <div class="kontak-links">
       <a href="mailto:abdurrahman.muhammadarifin@gmail.com">
         <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
@@ -613,7 +738,7 @@
     </div>
   </div>
   <footer>
-    <span class="squiggle-wrap">Dibuat sendiri, sambil terus belajar
+    <span class="squiggle-wrap" data-i18n="footer_text">Dibuat sendiri, sambil terus belajar
       <svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q 20 2 40 8 T 80 7 T 120 9 T 160 6 T 198 9"/></svg>
     </span>
      — © 2026 Muhammad Arifin Abdurrahman
@@ -621,6 +746,234 @@
 </section>
 
 <script>
+  // ---------- translations (ID / EN / DE) ----------
+  const SQ = '<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q 20 2 40 8 T 80 7 T 120 9 T 160 6 T 198 9"/></svg>';
+  const I18N = {
+    id: {
+      nav_about: "Tentang", nav_skill: "Skill", nav_exp: "Pengalaman", nav_free: "Waktu Luang", nav_contact: "Kontak",
+      hero_eyebrow: "Halo, saya —",
+      hero_lede: 'Sehari-hari mengurus logistik gudang di Jerman lewat program Ausbildung. Di waktu senggang, saya sedang <span class="squiggle-wrap">belajar jadi Web Developer ' + SQ + '</span> — otodidak, pelan-pelan, dibantu AI. Situs ini sendiri adalah salah satu buktinya.',
+      hero_cta1: "Kenalan lebih jauh", hero_cta2: "Hubungi saya",
+      badge_dachser: "Dachser, Jerman", badge_learning: "&lt;/&gt; sedang belajar coding",
+      about_eyebrow: "Tentang saya",
+      about_h2: "Perjalanan yang nggak lurus-lurus amat, dan menurut saya nggak apa-apa.",
+      about_p1: "Sebelum ke Jerman, dunia saya adalah ruang kelas. Selama 2 tahun saya mengabdi sebagai pengajar Al-Qur'an di Pondok Pesantren I'dad Mu'allimil Qur'an Al Furqon, Magelang — lalu lanjut 6 bulan mengajar di SMPIT Ihsanul Fikri, Magelang. Dua pengalaman itu yang membentuk cara saya berkomunikasi dan sabar menghadapi proses belajar orang lain.",
+      about_p2: 'Sekarang saya sedang menjalani Program Ausbildung sebagai <strong>Fachlagerist</strong> (spesialis logistik gudang) di Dachser. Dunia yang jauh berbeda dari mengajar, tapi tetap soal disiplin dan ketelitian. Di sela-sela itu, saya iseng — lalu jadi serius — belajar web development sendirian, tanpa latar belakang coding formal, dibantu AI sebagai "guru" baru saya. Situs yang sedang Anda baca ini adalah hasilnya sejauh ini.',
+      path_1: "Pesantren", path_2: "SMPIT", path_3: "Dachser, Jerman", path_4: "Belajar Coding",
+      skill_eyebrow: "Yang saya bisa", skill_h2: "Skill, dari gudang sampai keyboard.",
+      skill_p: "Campuran skill fisik-praktis dari kerja, dan skill baru yang lagi saya rintis pelan-pelan.",
+      skill_forklift: "Mengoperasikan Forklift (Stapler)", skill_office: "Microsoft Office",
+      skill_web: "Web Development", skill_teach: "Mengajar & Public Speaking",
+      level_mahir: "Mahir", level_belajar: "Sedang belajar",
+      exp_eyebrow: "Rekam jejak", exp_h2: "Pengalaman kerja & mengabdi.",
+      exp_p: "Tiga babak yang cukup berbeda satu sama lain, tapi semuanya membentuk cara kerja saya sekarang.",
+      tag_ongoing: "Sedang berlangsung", tag_ausbildung: "Program Ausbildung",
+      exp1_title: "Fachlagerist Trainee", exp1_org: "Dachser — Jerman",
+      exp1_p: "Menjalani pelatihan sebagai spesialis logistik gudang: pergudangan, penanganan barang, dan operasional forklift di salah satu perusahaan logistik terbesar di Eropa.",
+      tag_done: "Selesai", exp2_time: "6 bulan", exp2_title: "Guru",
+      exp2_p: "Mengajar dan mendampingi murid SMP, melanjutkan kebiasaan mengajar setelah masa di pesantren.",
+      exp3_time: "2 tahun", exp3_title: "Pengajar Al-Qur'an",
+      exp3_p: "Mengabdi sebagai pengajar Al-Qur'an — titik awal yang melatih kesabaran dan cara berkomunikasi saya sampai hari ini.",
+      personal_eyebrow: "Di luar kerjaan", personal_h2: "Biar nggak cuma keliatan kaku di CV.",
+      personal_p: "Sedikit soal saya yang nggak akan muncul di lembar CV formal manapun.",
+      games_eyebrow: "Game favorit", games_h3: "Penggemar game story-mode sinematik",
+      games_p: "Saya suka game yang ceritanya berat dan sinematik — biasanya dimainkan pelan-pelan sambil menikmati tiap adegan, bukan buru-buru selesai.",
+      jog_eyebrow: "Rutinitas", jog_h3: "Jogging",
+      jog_p: "Cara sederhana buat jaga kepala tetap jernih di antara jam kerja gudang dan jam belajar coding. Nggak neko-neko, cuma lari, dengar suara langkah sendiri, selesai.",
+      contact_eyebrow: "Ngobrol yuk", contact_h2: "Ada yang mau ditanyain, atau sekadar mau kenalan?",
+      contact_p: "Baik soal kerja, kolaborasi, atau cuma mau sapa — dengan senang hati saya balas.",
+      footer_text: "Dibuat sendiri, sambil terus belajar " + SQ
+    },
+    en: {
+      nav_about: "About", nav_skill: "Skills", nav_exp: "Experience", nav_free: "Free Time", nav_contact: "Contact",
+      hero_eyebrow: "Hi, I'm —",
+      hero_lede: 'Day to day I handle warehouse logistics in Germany through an Ausbildung program. In my spare time, I\'m <span class="squiggle-wrap">learning to become a Web Developer ' + SQ + '</span> — self-taught, step by step, with help from AI. This very site is one of the results.',
+      hero_cta1: "Get to know me", hero_cta2: "Contact me",
+      badge_dachser: "Dachser, Germany", badge_learning: "&lt;/&gt; currently learning to code",
+      about_eyebrow: "About me",
+      about_h2: "A path that isn't exactly a straight line — and I think that's okay.",
+      about_p1: "Before Germany, my world was the classroom. For 2 years I served as a Qur'an teacher at the I'dad Mu'allimil Qur'an Al Furqon Islamic boarding school in Magelang — then 6 more months teaching at SMPIT Ihsanul Fikri, Magelang. Those two experiences shaped how I communicate and how patient I am with other people's learning process.",
+      about_p2: 'Now I\'m doing an Ausbildung program as a <strong>Fachlagerist</strong> (warehouse logistics specialist) at Dachser. A world far removed from teaching, but still about discipline and precision. In between, I started — casually, then seriously — teaching myself web development without any formal coding background, with AI as my new "teacher". The site you\'re reading right now is the result so far.',
+      path_1: "Islamic School", path_2: "SMPIT", path_3: "Dachser, Germany", path_4: "Learning to Code",
+      skill_eyebrow: "What I can do", skill_h2: "Skills, from the warehouse to the keyboard.",
+      skill_p: "A mix of hands-on, practical skills from work and new ones I'm slowly building up.",
+      skill_forklift: "Operating a Forklift (Stapler)", skill_office: "Microsoft Office",
+      skill_web: "Web Development", skill_teach: "Teaching & Public Speaking",
+      level_mahir: "Proficient", level_belajar: "Learning",
+      exp_eyebrow: "Track record", exp_h2: "Work & service experience.",
+      exp_p: "Three fairly different chapters, but all of them shaped how I work today.",
+      tag_ongoing: "Ongoing", tag_ausbildung: "Ausbildung Program",
+      exp1_title: "Fachlagerist Trainee", exp1_org: "Dachser — Germany",
+      exp1_p: "Training as a warehouse logistics specialist: warehousing, goods handling, and forklift operation at one of the largest logistics companies in Europe.",
+      tag_done: "Completed", exp2_time: "6 months", exp2_title: "Teacher",
+      exp2_p: "Taught and mentored middle-school students, continuing my teaching habit after my time at the pesantren.",
+      exp3_time: "2 years", exp3_title: "Qur'an Teacher",
+      exp3_p: "Served as a Qur'an teacher — the starting point that trained the patience and communication style I still rely on today.",
+      personal_eyebrow: "Outside of work", personal_h2: "So I don't just come across as stiff on a CV.",
+      personal_p: "A little about me that won't show up on any formal CV.",
+      games_eyebrow: "Favorite games", games_h3: "A fan of cinematic story-mode games",
+      games_p: "I love games with deep, cinematic stories — usually played slowly, savoring every scene rather than rushing to the end.",
+      jog_eyebrow: "Routine", jog_h3: "Jogging",
+      jog_p: "A simple way to keep my head clear between warehouse shifts and coding study. Nothing fancy — just running, listening to my own footsteps, done.",
+      contact_eyebrow: "Let's talk", contact_h2: "Got something to ask, or just want to say hi?",
+      contact_p: "Whether it's about work, collaboration, or just a hello — I'll happily reply.",
+      footer_text: "Built by myself, while still learning " + SQ
+    },
+    de: {
+      nav_about: "Über mich", nav_skill: "Fähigkeiten", nav_exp: "Erfahrung", nav_free: "Freizeit", nav_contact: "Kontakt",
+      hero_eyebrow: "Hallo, ich bin —",
+      hero_lede: 'Im Alltag kümmere ich mich in Deutschland im Rahmen einer Ausbildung um die Lagerlogistik. In meiner Freizeit <span class="squiggle-wrap">lerne ich, Webentwickler zu werden ' + SQ + '</span> — autodidaktisch, Schritt für Schritt, mit Hilfe von KI. Diese Seite selbst ist eines der Ergebnisse.',
+      hero_cta1: "Mehr über mich", hero_cta2: "Kontakt aufnehmen",
+      badge_dachser: "Dachser, Deutschland", badge_learning: "&lt;/&gt; lerne gerade programmieren",
+      about_eyebrow: "Über mich",
+      about_h2: "Ein Weg, der nicht ganz geradlinig ist — und das ist meiner Meinung nach völlig in Ordnung.",
+      about_p1: "Vor Deutschland war meine Welt das Klassenzimmer. Zwei Jahre lang war ich Qur'an-Lehrer an der Islamschule I'dad Mu'allimil Qur'an Al Furqon in Magelang — danach unterrichtete ich sechs Monate an der SMPIT Ihsanul Fikri in Magelang. Diese beiden Erfahrungen haben geprägt, wie ich kommuniziere und wie geduldig ich mit dem Lernprozess anderer umgehe.",
+      about_p2: 'Jetzt absolviere ich eine Ausbildung zum <strong>Fachlagerist</strong> (Spezialist für Lagerlogistik) bei Dachser. Eine ganz andere Welt als das Unterrichten, aber es geht weiterhin um Disziplin und Genauigkeit. Nebenbei habe ich angefangen — erst aus Spaß, dann ernsthaft — mir selbst Webentwicklung beizubringen, ohne formale Programmierausbildung, mit KI als meinem neuen "Lehrer". Die Seite, die Sie gerade lesen, ist das bisherige Ergebnis.',
+      path_1: "Koranschule", path_2: "SMPIT", path_3: "Dachser, Deutschland", path_4: "Coding lernen",
+      skill_eyebrow: "Was ich kann", skill_h2: "Fähigkeiten, vom Lager bis zur Tastatur.",
+      skill_p: "Eine Mischung aus praktischen Fähigkeiten aus der Arbeit und neuen, die ich mir langsam aufbaue.",
+      skill_forklift: "Gabelstapler fahren (Stapler)", skill_office: "Microsoft Office",
+      skill_web: "Webentwicklung", skill_teach: "Unterrichten & Präsentieren",
+      level_mahir: "Sicher", level_belajar: "Am Lernen",
+      exp_eyebrow: "Werdegang", exp_h2: "Berufserfahrung & Engagement.",
+      exp_p: "Drei recht unterschiedliche Kapitel, die alle meine heutige Arbeitsweise geprägt haben.",
+      tag_ongoing: "Laufend", tag_ausbildung: "Ausbildung",
+      exp1_title: "Fachlagerist (Auszubildender)", exp1_org: "Dachser — Deutschland",
+      exp1_p: "Ausbildung zum Spezialisten für Lagerlogistik: Lagerhaltung, Warenabwicklung und Gabelstaplerbetrieb bei einem der größten Logistikunternehmen Europas.",
+      tag_done: "Abgeschlossen", exp2_time: "6 Monate", exp2_title: "Lehrer",
+      exp2_p: "Unterrichtete und betreute Schüler der Mittelstufe und setzte damit meine Lehrtätigkeit nach der Zeit an der Koranschule fort.",
+      exp3_time: "2 Jahre", exp3_title: "Qur'an-Lehrer",
+      exp3_p: "Tätig als Qur'an-Lehrer — der Ausgangspunkt, der die Geduld und Kommunikationsweise geprägt hat, auf die ich mich noch heute verlasse.",
+      personal_eyebrow: "Abseits der Arbeit", personal_h2: "Damit ich nicht nur steif auf dem Lebenslauf wirke.",
+      personal_p: "Ein bisschen über mich, das auf keinem formellen Lebenslauf auftaucht.",
+      games_eyebrow: "Lieblingsspiele", games_h3: "Fan von cineastischen Story-Spielen",
+      games_p: "Ich liebe Spiele mit tiefgründiger, cineastischer Handlung — meist langsam gespielt, um jede Szene zu genießen, statt schnell durchzuhetzen.",
+      jog_eyebrow: "Routine", jog_h3: "Joggen",
+      jog_p: "Eine einfache Art, den Kopf zwischen Lagerschichten und dem Programmierenlernen frei zu bekommen. Nichts Ausgefallenes — einfach laufen, den eigenen Schritten lauschen, fertig.",
+      contact_eyebrow: "Lass uns reden", contact_h2: "Etwas zu fragen, oder einfach nur Hallo sagen?",
+      contact_p: "Ob Arbeit, Zusammenarbeit oder einfach ein Hallo — ich antworte gerne.",
+      footer_text: "Selbst gebaut, während ich noch lerne " + SQ
+    }
+  };
+
+  // ---------- intro / opening ----------
+  (function(){
+    const intro = document.getElementById('intro');
+    if(!intro) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){ intro.remove(); return; }
+    // set to play once per visit; change to false to replay on every page refresh
+    const ONCE_PER_SESSION = true;
+    let seen = false;
+    try{ seen = ONCE_PER_SESSION && sessionStorage.getItem('introSeen') === '1'; }catch(e){}
+    if(seen){ intro.remove(); return; }
+    try{ sessionStorage.setItem('introSeen','1'); }catch(e){}
+
+    // ---- original "ta-dum" signature, synthesized (no audio file) ----
+    let soundOn = true;
+    try{ soundOn = localStorage.getItem('introSound') !== 'off'; }catch(e){}
+    let ctx = null, played = false;
+    function playSignature(c){
+      const now = c.currentTime + 0.03;
+      const master = c.createGain(); master.gain.value = 0.85;
+      const conv = c.createConvolver(); conv.buffer = makeIR(2.6, 2.4);
+      const wet = c.createGain(); wet.gain.value = 0.30;   // reverb amount (elegance)
+      const dry = c.createGain(); dry.gain.value = 1.0;
+      master.connect(dry); dry.connect(c.destination);
+      master.connect(conv); conv.connect(wet); wet.connect(c.destination);
+      function makeIR(dur, decay){ // synthetic reverb impulse (cinematic tail)
+        const len = Math.floor(c.sampleRate * dur), b = c.createBuffer(2, len, c.sampleRate);
+        for(let ch = 0; ch < 2; ch++){ const d = b.getChannelData(ch); for(let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay); }
+        return b;
+      }
+      function bell(freq, start, dur, peak){ // inharmonic partials → clean bell (elegance)
+        [[1,1],[2,0.5],[2.98,0.30],[4.1,0.16],[5.43,0.09]].forEach(([r, a]) => {
+          const o = c.createOscillator(), g = c.createGain();
+          o.type = 'sine'; o.frequency.setValueAtTime(freq * r, start);
+          g.gain.setValueAtTime(0.0001, start);
+          g.gain.exponentialRampToValueAtTime(peak * a, start + 0.008);
+          g.gain.exponentialRampToValueAtTime(0.0001, start + dur / (1 + r * 0.14));
+          o.connect(g); g.connect(master); o.start(start); o.stop(start + dur + 0.1);
+        });
+      }
+      function sub(f0, f1, start, dur, peak){ // deep impact with pitch drop (tegas)
+        const o = c.createOscillator(), g = c.createGain();
+        o.type = 'sine'; o.frequency.setValueAtTime(f0, start);
+        o.frequency.exponentialRampToValueAtTime(f1, start + 0.10);
+        g.gain.setValueAtTime(0.0001, start);
+        g.gain.exponentialRampToValueAtTime(peak, start + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+        o.connect(g); g.connect(master); o.start(start); o.stop(start + dur + 0.1);
+      }
+      function noiseHit(start, dur, peak, cut){ // attack transient → punch
+        const len = Math.floor(c.sampleRate * dur), b = c.createBuffer(1, len, c.sampleRate), d = b.getChannelData(0);
+        for(let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2);
+        const s = c.createBufferSource(); s.buffer = b;
+        const f = c.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = cut;
+        const g = c.createGain(); g.gain.value = peak;
+        s.connect(f); f.connect(g); g.connect(master); s.start(start);
+      }
+      bell(880, now,          0.9, 0.20);  // "ta"  — bright bell strike
+      sub(130, 55, now + 0.28, 1.7, 0.60); // "DUM" — deep resonant impact
+      noiseHit(now + 0.28,    0.09, 0.22, 900); //   — punch transient
+      bell(110, now + 0.29,   1.7, 0.16);  //        — warm body (root)
+      bell(165, now + 0.29,   1.5, 0.10);  //        — fifth, resolved chord
+    }
+    function playSig(){
+      if(played || !soundOn) return;
+      if(!ctx){ try{ ctx = new (window.AudioContext || window.webkitAudioContext)(); }catch(e){ ctx = null; } }
+      if(!ctx) return;
+      if(ctx.state === 'suspended'){ ctx.resume(); }
+      if(ctx.state !== 'running') return; // browser still blocking; wait for a gesture
+      played = true;
+      playSignature(ctx);
+      removeUnlock();
+    }
+    const unlockEvents = ['pointerdown','keydown','touchstart'];
+    function unlock(e){
+      if(e && e.target && e.target.closest && e.target.closest('#introSkip, #introSound')) return;
+      playSig();
+    }
+    function removeUnlock(){ unlockEvents.forEach(ev => window.removeEventListener(ev, unlock)); }
+    unlockEvents.forEach(ev => window.addEventListener(ev, unlock, { passive: true }));
+    // try to play synced with the logo climax (works if autoplay is allowed)
+    const climax = setTimeout(playSig, 1750);
+
+    const sndBtn = document.getElementById('introSound');
+    function renderSnd(){
+      if(!sndBtn) return;
+      sndBtn.textContent = soundOn ? '🔊' : '🔇';
+      sndBtn.setAttribute('aria-label', soundOn ? 'Matikan suara' : 'Nyalakan suara');
+    }
+    renderSnd();
+    if(sndBtn) sndBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      soundOn = !soundOn;
+      try{ localStorage.setItem('introSound', soundOn ? 'on' : 'off'); }catch(err){}
+      renderSnd();
+      if(soundOn) playSig();
+    });
+
+    // ---- overlay lifecycle ----
+    document.body.style.overflow = 'hidden';
+    let done = false;
+    function finish(){
+      if(done) return; done = true;
+      clearTimeout(climax);
+      removeUnlock();
+      document.body.style.overflow = '';
+      intro.remove();
+    }
+    function skip(){ intro.classList.add('skip'); }
+    intro.addEventListener('animationend', (e) => {
+      if(e.animationName === 'intro-out') finish();
+    });
+    const skipBtn = document.getElementById('introSkip');
+    if(skipBtn) skipBtn.addEventListener('click', skip);
+    // safety fallback in case animationend never fires
+    setTimeout(finish, 4200);
+  })();
+
   // mobile nav toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
@@ -628,6 +981,44 @@
     navLinks.classList.toggle('open');
   });
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // draw-in squiggle underlines
+  function drawSquiggles(){
+    document.querySelectorAll('.squiggle-wrap path').forEach(path => {
+      const len = path.getTotalLength();
+      path.style.transition = 'none';
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
+      path.getBoundingClientRect();
+      path.style.transition = 'stroke-dashoffset 1.1s cubic-bezier(0.65,0,0.35,1) .2s';
+      requestAnimationFrame(() => { path.style.strokeDashoffset = '0'; });
+    });
+  }
+
+  // apply a language
+  function applyLang(lang){
+    const dict = I18N[lang];
+    if(!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if(dict[k] !== undefined) el.innerHTML = dict[k];
+    });
+    document.documentElement.lang = lang;
+    document.querySelectorAll('#langSwitch button').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    try{ localStorage.setItem('lang', lang); }catch(e){}
+    drawSquiggles();
+  }
+
+  document.querySelectorAll('#langSwitch button').forEach(b => {
+    b.addEventListener('click', () => applyLang(b.dataset.lang));
+  });
+
+  // init language (remembered choice, default id)
+  let startLang = 'id';
+  try{ const s = localStorage.getItem('lang'); if(s && I18N[s]) startLang = s; }catch(e){}
+  applyLang(startLang);
 
   // scroll reveal
   const revealEls = document.querySelectorAll('.reveal, .reveal-pop');
@@ -666,17 +1057,8 @@
     });
   });
 
-  // draw-in squiggle underlines on load
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.squiggle-wrap path').forEach(path => {
-      const len = path.getTotalLength();
-      path.style.strokeDasharray = len;
-      path.style.strokeDashoffset = len;
-      path.getBoundingClientRect();
-      path.style.transition = 'stroke-dashoffset 1.1s cubic-bezier(0.65,0,0.35,1) .3s';
-      requestAnimationFrame(() => { path.style.strokeDashoffset = '0'; });
-    });
-  });
+  // re-run squiggle draw once fonts/layout settle
+  window.addEventListener('load', drawSquiggles);
 </script>
 </body>
 </html>
