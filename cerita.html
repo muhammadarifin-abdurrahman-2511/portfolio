@@ -43,7 +43,10 @@
   .lang-switch button.active{ background:var(--coral); color:var(--white); box-shadow:var(--shadow-sm); }
   .lang-switch button:hover:not(.active){ color:var(--coral-dark); }
 
-  main{ flex:1 0 auto; padding:70px 0 40px; }
+  main{ flex:1 0 auto; padding:70px 0 40px; position:relative; }
+  main::before{ content:""; position:absolute; inset:-10px -12% auto -12%; height:360px; z-index:0; pointer-events:none;
+    background: radial-gradient(520px 300px at 15% 0%, rgba(46,155,230,.18), transparent 66%), radial-gradient(420px 240px at 90% 4%, rgba(124,108,240,.10), transparent 68%); }
+  main > .wrap{ position:relative; z-index:1; }
   .page-head{ margin-bottom:44px; }
   .page-head h1{ font-size:46px; }
   .page-head .lede{ font-size:19px; }

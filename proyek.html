@@ -12,7 +12,7 @@
 <style>
   :root{
     --cream:#f3f9ff; --cream-3:#eaf4ff; --ink:#1f3040; --ink-soft:#566b7d; --ink-faint:#97aabb;
-    --coral:#2e9be6; --coral-dark:#1b7fc9; --coral-light:#bfe1fa; --coral-wash:#e7f4fe; --line:#d5e8f6; --white:#fff;
+    --coral:#7c6cf0; --coral-dark:#5b4bd6; --coral-light:#cfc9fb; --coral-wash:#ecebfe; --line:#e0ddf6; --white:#fff;
     --bounce:cubic-bezier(0.34,1.56,0.64,1); --ease:cubic-bezier(0.22,1,0.36,1);
     --shadow-sm:0 1px 2px rgba(40,110,170,.07),0 2px 6px rgba(40,110,170,.06);
     --shadow-md:0 2px 4px rgba(40,110,170,.06),0 10px 24px rgba(40,110,170,.12);
@@ -44,7 +44,10 @@
   .lang-switch button.active{ background:var(--coral); color:var(--white); box-shadow:var(--shadow-sm); }
   .lang-switch button:hover:not(.active){ color:var(--coral-dark); }
 
-  main{ flex:1 0 auto; padding:70px 0 40px; }
+  main{ flex:1 0 auto; padding:70px 0 40px; position:relative; }
+  main::before{ content:""; position:absolute; inset:-10px -12% auto -12%; height:360px; z-index:0; pointer-events:none;
+    background: radial-gradient(520px 300px at 15% 0%, rgba(124,108,240,.16), transparent 66%), radial-gradient(420px 240px at 90% 4%, rgba(46,155,230,.10), transparent 68%); }
+  main > .wrap{ position:relative; z-index:1; }
   .page-head{ max-width:640px; margin-bottom:44px; }
   .page-head h1{ font-size:46px; }
   .page-head .lede{ font-size:19px; }
